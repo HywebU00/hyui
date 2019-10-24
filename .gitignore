@@ -9,7 +9,11 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
-
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+*.rb
 # Used by dotenv library to load environment variables.
 # .env
 
