@@ -128,6 +128,7 @@
             display: inline-block;
             vertical-align: middle;
             box-shadow: none;
+            text-shadow:none;
             &:hover, &:focus {
                 color: #fff !important;
                 background: $form-focus;

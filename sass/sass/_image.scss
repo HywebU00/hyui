@@ -7,19 +7,34 @@ img {
         //圓形
         @include border-radius(50%);
     }
+    &:not([src]) {
+        visibility: hidden;
+        opacity: 0;
+    }
+    &.lazy{
+        visibility: hidden;
+    }
+    &.loaded {
+        visibility: visible;
+        animation: lazy_animation .5s ease-out;
+    }
+}
+@keyframes lazy_animation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 // 設定img 在IE9+ SAFARI FIREFOX CHROME 可以object-fit
 /*for IE */
-.imgOuter {
-    position: relative;
-}
 .img-container {
     width: 100%;
     position: relative;
-    @include aspect-ratio(4,3);
-    background:#F1F1F1;
+    @include aspect-ratio(4, 3);
+    background: #F1F1F1;
     a {
-        // display: block;
         height: 100%;
         width: 100%;
         position: absolute;

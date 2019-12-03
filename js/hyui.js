@@ -214,22 +214,25 @@ $(function() {
         search_mode = false;
     });
     // 固定版頭
-    var stickyMenuTop = Math.floor($('.header .menu').offset().top);
-    console.log(stickyMenuTop);
     hh = Math.floor($('.header').outerHeight(true));
-    menuH = Math.floor(_menu.outerHeight(true));
-    $(window).bind("load scroll resize", function(e) {
-        ww = _window.outerWidth();
-        if (ww >= wwSmall && $(this).scrollTop() > stickyMenuTop) {
-            $('.header').addClass('fixed');
-            $('.header').css('margin-top', menuH - hh);
-            $('.main').css('margin-top', hh);
-        } else {
-            $('.header').removeClass('fixed');
-            $('.header').css('margin-top', 0);
-            $('.main').css('margin-top', 0);
-        }
-    });
+    if ($('header').has('menu')) {
+        var stickyMenuTop = Math.floor($('.header .menu').offset().top);
+        // console.log(stickyMenuTop);
+        hh = Math.floor($('.header').outerHeight(true));
+        menuH = Math.floor(_menu.outerHeight(true));
+        $(window).bind("load scroll resize", function(e) {
+            ww = _window.outerWidth();
+            if (ww >= wwSmall && $(this).scrollTop() > stickyMenuTop) {
+                $('.header').addClass('fixed');
+                $('.header').css('margin-top', menuH - hh);
+                $('.main').css('margin-top', hh);
+            } else {
+                $('.header').removeClass('fixed');
+                $('.header').css('margin-top', 0);
+                $('.main').css('margin-top', 0);
+            }
+        });
+    }
     /*-----------------------------------*/
     //////////// notice訊息區塊 ////////////
     /*-----------------------------------*/
@@ -458,7 +461,7 @@ $(function() {
     ie = ieReg.test(userAgent);
     if (ie) {
         $(".img-container").each(function() {
-            var imgUrl = $(this).find('img').attr('data-original');
+            var imgUrl = $(this).find('img').attr('data-src');
             var $container = $(this);
             $container.has('.none').addClass('ie-object-none');
             $container.has('.none').css('backgroundImage', 'url(' + imgUrl + ')');
@@ -693,10 +696,12 @@ $(function() {
     ////////////// lazy load //////////////
     /*-----------------------------------*/
     if ($('img.lazy').length > 0) {
-        $('img.lazy').show().lazyload({
-            placeholder: 'images/basic/placeholder.gif',
+        var lazyLoadInstance = new LazyLoad({
+            elements_selector: "img.lazy",
+            placeholder: '/images/basic/placeholder.gif',
             effect: "fadeIn",
-            effectspeed: 600,
+            fadeTime: 200,
+            threshold: 0
         });
     }
 });
