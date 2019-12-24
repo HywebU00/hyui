@@ -59,20 +59,19 @@ table {
             border: none !important;
             border-bottom: 1px solid #eee !important;
             position: relative;
-            padding-left: 35% !important;
             white-space: normal;
             text-align: left;
+            padding-top: 1.5em;
             &:before {
                 content: attr(data-title);
                 position: absolute;
-                top: .5em;
-                left: .5em;
-                width: 30%;
-                padding-right: 10px;
+                top: 0em;
+                left: .75em;
+                width: 100%;
+                font-size: .75em;
                 white-space: nowrap;
                 text-align: left;
-                font-weight: bold;
-                color: #000;
+                color: #888;
             }
         }
     }
