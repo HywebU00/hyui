@@ -122,4 +122,5 @@ $(function() {
         focusOnSelect: true,
         infinite: true
     });
+    
 });

@@ -12,6 +12,7 @@
     .page {
         margin: 10px 0;
         padding: 0;
+        display: block;
         li {
             display: inline-block;
             min-width: 40px;
@@ -112,7 +113,9 @@
         }
     }
     .total {
-        padding: .5em;
+        padding: 0em;
+        display: inline-block;
+        vertical-align: middle;
         select {
             margin: 0px .5em;
             @include screen('mobile') {
@@ -128,13 +131,23 @@
             display: inline-block;
             vertical-align: middle;
             box-shadow: none;
-            text-shadow:none;
+            text-shadow: none;
             &:hover, &:focus {
                 color: #fff !important;
                 background: $form-focus;
                 border: darken($form-focus, 5) solid 1px;
                 box-shadow: none !important;
             }
+        }
+    }
+    .items {
+        display: inline-block;
+        vertical-align: middle;
+        
+        a {
+            padding: 0 5px;
+            color: $primaryColor;
+            text-decoration: none;
         }
     }
 }
