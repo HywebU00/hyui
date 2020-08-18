@@ -216,7 +216,7 @@ $(function() {
         search_mode = false;
     });
     // 固定版頭
-     hh = Math.floor($('.header').outerHeight(true));
+     // hh = Math.floor($('.header').outerHeight(true));
     if ($('header .menu').length > 0) {
         var stickyMenuTop = Math.floor($('header .menu').offset().top);
         console.log(stickyMenuTop);
@@ -423,7 +423,7 @@ $(function() {
                 var _tabItemNow = $(this).parent(),
                     tvp = _tab.offset().top,
                     tabIndex = _tabItemNow.index() / 2,
-                    scollDistance = tvp + tabItemHeight * tabIndex - hh;
+                    scollDistance = tvp + tabItemHeight * tabIndex - Math.floor($('.header').outerHeight(true));
                 _tabItem.removeClass('active');
                 _tabItemNow.addClass('active');
                 if (ww <= wwSmall) {
